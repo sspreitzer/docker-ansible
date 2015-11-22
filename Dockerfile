@@ -8,9 +8,7 @@ RUN yum install -y epel-release && \
 USER ansible
 WORKDIR /var/lib/ansible
 
-ENV ANSIBLE_INVENTORY=/var/lib/ansible/hosts
-  ANSIBLE_NOCOLOR=1
-  ANSIBLE_HOST_KEY_CHECKING=False
+ENV ANSIBLE_INVENTORY=/var/lib/ansible/hosts ANSIBLE_NOCOLOR=1 ANSIBLE_HOST_KEY_CHECKING=False
 
 VOLUME /etc/ansible /var/lib/ansible
 CMD ansible-playbook site.yml
